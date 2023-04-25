@@ -1,4 +1,5 @@
 import java.lang.reflect.GenericArrayType;
+import java.nio.channels.spi.SelectorProvider;
 import java.util.ArrayList;
 import java.util.Scanner;
 public class Base {
@@ -107,10 +108,13 @@ public class Base {
     
     public void Listar(){
         System.out.flush();
-        System.out.println("Lista de mascotas:");
-        if(Mascotas.get(0) instanceof Perro){
+        System.out.println("Lista de mascotas: ");
 
-            Perro pulgas = ((Perro)Mascotas.get(0));
+        for(int i = 0; i < Mascotas.size(); i++){
+            System.out.println("===================================");
+        if(Mascotas.get(i) instanceof Perro){
+
+            Perro pulgas = ((Perro)Mascotas.get(i));
             System.out.println("Nombre: " +pulgas.getNombre());
 
             System.out.println("Precio: "+pulgas.getPrecio());
@@ -152,9 +156,9 @@ public class Base {
         
         
 
-    } else if (Mascotas.get(0) instanceof Gato ){
+    } else if (Mascotas.get(i) instanceof Gato ){
         String msg,ms1;
-        Gato garras= ((Gato)Mascotas.get(0));
+        Gato garras= ((Gato)Mascotas.get(i));
         System.out.println("Nombre: "+garras.getNombre());
         System.out.println("Precio: "+garras.getPrecio());
            if (garras.isGarras()==true){
@@ -166,10 +170,10 @@ public class Base {
         System.out.println("Vacuna Malota: "+garras.isVacunaMalota());
         System.out.println("Origen: "+garras.getOrigen());
         System.out.println("Vacunas Aplicadas: "+garras.getVacunas());
+        System.out.println("===================================");
+
         
-        
-        
-    }
+    }}
         
         /*int i=0;
         while ( i<Mascotas.size()){
@@ -240,6 +244,9 @@ public class Base {
         System.out.println("===========================");
         
         }
+
+
+  
     }
     
 
