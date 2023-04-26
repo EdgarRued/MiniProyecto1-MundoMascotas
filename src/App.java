@@ -1,9 +1,16 @@
 import java.util.Scanner;
 
 public class App {
+    public void clearscreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+    
     public static void main(String[] args)  {
+        App borrar=new App();
         boolean num = true;
         while(num==true){
+            
             System.out.println("=====BIENVENIDO A MUNDO MASCOTAS======");
             System.out.println("1. Insertar Mascota");
             System.out.println("2. Actualizar Mascota");
@@ -20,10 +27,25 @@ public class App {
             Base base= new Base();
             switch(control){
                 case 1:
-                    System.out.flush();
+                borrar.clearscreen();
+                    
                     base.AñadirMascota();
+                    
+                    break;
+                case 2:
+                    borrar.clearscreen();
+                    base.Actualizar();
+                    break;
+                case 4:
+                borrar.clearscreen();
+
+                    Scanner r1=new Scanner(System.in);
+                    System.out.print("introduzca el nombre a buscar: ");
+                    String name = r1.nextLine();
+                    base.BuscarMascota(name);
                     break;
                 case 5:
+                    borrar.clearscreen();
                     base.Listar();
                     break;
                 case 6:
@@ -39,6 +61,9 @@ public class App {
             }
         }
     }
+
+    
+    
 }
     
 

@@ -1,5 +1,5 @@
 public class Gato extends Mascota {
-    boolean garras;
+    private boolean garras;
     
     
     
