@@ -913,4 +913,23 @@ public class Base {
         System.out.print("digite cualquier caracter para continuar: ");
         String tom= p.nextLine();
     }
+    public void NotLatinoamerica(){
+        
+        System.out.println("Nombres de mascotas que no tienen como pais de origen latinoamerica:");
+        System.out.println("=============================================================");
+        for (int i=0; i<Mascotas.size(); i++){
+            System.out.println("-----------------");
+            Origenes tomarOrigen=Mascotas.get(i).getOrigen();
+            String nom=Mascotas.get(i).getNombre();
+            if((tomarOrigen!=Origenes.latinoamerica)&&(tomarOrigen!=Origenes.Latinoamerica)){
+                System.out.println("-----------------");
+                System.out.println(nom);
+                System.out.println("-----------------");
+            }
+            
+        }
+        Scanner pil=new Scanner(System.in);
+        System.out.println("Ingrese cualquier caracter para continuar...:");
+        String pol=pil.nextLine();
+    }
 } 

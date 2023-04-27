@@ -88,6 +88,8 @@ public class App {
 
                         break;
                     case 3:
+                        borrar.clearscreen();
+                        base.NotLatinoamerica();
 
                         break;
                     case 4:
