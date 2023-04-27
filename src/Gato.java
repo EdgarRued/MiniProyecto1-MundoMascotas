@@ -1,9 +1,6 @@
 public class Gato extends Mascota {
     private boolean garras;
     
-    
-    
-
     public Gato(String nombre, int precio, boolean vacunamalota, String origen, byte vacunas, boolean garras) {
         super(nombre, precio, vacunamalota, origen, vacunas);
         this.garras = garras;
@@ -19,6 +16,5 @@ public class Gato extends Mascota {
 
     public void setGarras(boolean garras) {
         this.garras = garras;
-    }
-    
+    }  
 }

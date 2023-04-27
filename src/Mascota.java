@@ -42,5 +42,4 @@ public class Mascota {
     public void setVacunas(byte vacunas) {
         this.vacunas = vacunas;
     }
-    
 }

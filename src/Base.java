@@ -2,18 +2,14 @@ import java.lang.reflect.GenericArrayType;
 import java.nio.channels.spi.SelectorProvider;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import javax.sound.midi.SysexMessage;
 import javax.swing.text.AbstractDocument.Content;
 import javax.swing.text.AbstractDocument.LeafElement;
-public class Base {
-    
-    
+public class Base { 
     static ArrayList<Mascota> Mascotas= new ArrayList<Mascota>();
     Scanner general = new Scanner(System.in);
         static byte decision;
         static byte contMascotas=0;
-
 
     public void AñadirMascota(){
         System.out.flush();
@@ -61,20 +57,14 @@ public class Base {
                     else{
                         newGarras=false;
                     }
-
-
                     System.out.println("====================================");
                     // 1 para si
                     // 2 para 20
                     String root;
-                    System.out.print("Mascota agregada correctamente...digite cualquier tecla para continuar...:");
-                    
+                    System.out.print("Mascota agregada correctamente...digite cualquier tecla para continuar...:");  
                     root= i3.nextLine();
                     contMascotas++;
-            
                     Gato gatito = new Gato(nombre,precio,vaccineValue,origen,vacunas,newGarras);
-                    
-                    
                     Mascotas.add(gatito);
                 }
                 else if (decision==2){
@@ -103,21 +93,14 @@ public class Base {
                     }else{
                         vmalota=false;
                     }
-
-
                     System.out.print("Tiene pulgas?... Si=1 / No=2: ");
-                    Boolean plg;
-                    
+                    Boolean plg;  
                     Byte Pulgas = i6.nextByte();
                     if(Pulgas==1){
                         plg=true;
                     }else{
                         plg=false;
-                    }
-                    
-                    
-                    
-                    
+                    }  
                     System.out.print("Muerde?...Si=1 / No=2: ");
                     Boolean mrde;
                     byte des2=i7.nextByte();
@@ -136,12 +119,8 @@ public class Base {
                 } else{
                     System.out.println("error... intentelo de nuevo");
                 }
-                clearscreen();
-        
-                
-    }
-
-    
+                clearscreen();         
+    } 
     public void Listar(){
         if(contMascotas!=0){
         Scanner control=new Scanner(System.in);
@@ -154,18 +133,15 @@ public class Base {
             System.out.println("=====================");
         if(Mascotas.get(i) instanceof Perro){
             Scanner controller= new Scanner(System.in);
-
             Perro pulgas = ((Perro)Mascotas.get(i));
             System.out.println("Nombre: " +pulgas.getNombre());
-
             System.out.println("Precio: "+pulgas.getPrecio());
             String mensaje,mensaje2,msg;
             if (pulgas.isPulgas()==true){
                 mensaje="Si";
             }else{
                 mensaje="No";
-            }
-            
+            }    
             System.out.println("El perro presenta pulgas: "+ mensaje);
 
             if (pulgas.isMuerde()==true){
@@ -182,8 +158,7 @@ public class Base {
             
             System.out.println("Muerde: "+ mensaje2);
             System.out.println("Origen: "+pulgas.getOrigen());
-            System.out.println("Vacunas Aplicadas: "+pulgas.getVacunas());
-            
+            System.out.println("Vacunas Aplicadas: "+pulgas.getVacunas());  
             System.out.println("Vacuna Malota: "+msg);
             System.out.println("=====================");
             System.out.println("- - - - - - - - - - - - - - - - - -");
@@ -231,8 +206,7 @@ public class Base {
     System.out.println("No hay mascotas en la lista...presione e ingrese cualquier tecla para continuar");
     Scanner pip=new Scanner(System.in);
     String pep = pip.nextLine(); 
-}
-        
+    }       
 }
 
     public void BuscarMascota(String name){
@@ -242,8 +216,6 @@ public class Base {
         for (int i=0; i<Mascotas.size();i++){
             String nom;
             nom = Mascotas.get(i).getNombre();
-            
-                
                 if(name.equals(nom)){
                     encontro=true;
                     System.out.println("Nombre a buscar: "+name);
@@ -285,17 +257,12 @@ public class Base {
                             m="No";
                         }
                         System.out.println("Garras: "+m);
-
                     }
                     System.out.println("=========================");
                     Scanner p=new Scanner(System.in);
                     System.out.println("Digite cualquier letra para continuar... ");
                     String a= p.nextLine();
-                    
-
-                
-                }
-                
+                }  
             }
             if (encontro==false){
                 System.out.println("No se encontro ninguna mascota relacionada con ese nombre..");
@@ -306,54 +273,7 @@ public class Base {
             }
             clearscreen();
         }
-        /*for(int j=0; j<Mascotas.size();j++){
-            String nom1;
-            if(Mascotas.get(j) instanceof Perro){
-                
-                
-                nom1 = Mascotas.get(j).getNombre();
-                if(name!=nom1){
-                    Perro CastPerro= ((Perro)Mascotas.get(j));
-                    Scanner control=new Scanner(System.in);
-                    System.out.println("============================");
-                    System.out.println("Nombre Asociado: "+name);
-                    System.out.println("Precio: "+CastPerro.getPrecio());
-                    String mensaje,mensaje2,msg;
-                    if (CastPerro.isPulgas()==true){
-                        mensaje="Si";
-                    }else{
-                        mensaje="No";
-                    }
-                    
-                    System.out.println("El perro presenta pulgas: "+ mensaje);
-        
-                    if (CastPerro.isMuerde()==true){
-                        mensaje2="Si";
-                    }else{
-                        mensaje2="No";
-                    }
-        
-                    if (CastPerro.isVacunaMalota()==true){
-                        msg="Si";
-                    }else{
-                        msg="No";
-                    }
-                    
-                    System.out.println("Muerde: "+ mensaje2);
-                    System.out.println("Origen: "+CastPerro.getOrigen());
-                    System.out.println("Vacunas Aplicadas: "+CastPerro.getVacunas());
-                    
-                    System.out.println("Vacuna Malota:"+msg);
-                    
-                    System.out.print("Digite cualquier letra para continuar...");
-                    String ctrl=control.nextLine();
-                    ctrl=null;
-                    break;
-                    
-                
-                
 
-            }*/
         public void Actualizar(){
             if(contMascotas!=0){
             clearscreen();
@@ -361,10 +281,8 @@ public class Base {
             capturar= new Scanner(System.in);
             num = new Scanner(System.in);
             num2 = new Scanner(System.in);
-            
             System.out.println("mostrando lista para actualizar...");
             Listar();
-            
             System.out.println("¿desea ver la lista de nuevo?... ");
             System.out.println("1.Si, no vi que mascota queria actualizar");
             System.out.println("2.No, ya se que mascota deseo actualizar");
@@ -373,13 +291,11 @@ public class Base {
             clearscreen();
             if(number==1){
                 preguntar();
-            }else if(number==2){
-            
+            }else if(number==2){  
             System.out.println("ingrese el N° de la mascota que desea actualizar: ");
             int capt= capturar.nextInt();
              clearscreen();
-            
-        
+      
         System.out.println("¿Que dato desea actualizar?");
         System.out.println("1.Nombre");
         System.out.println("2.Precio");
@@ -421,8 +337,7 @@ public class Base {
                     System.out.print("ingrese el nuevo lugar de origen: ");
                     String newcountry= f1.nextLine();
                     castinP.setOrigen(newcountry);
-                    break;
-                
+                    break;  
                 case 5:
                 clearscreen();
                     if (castinP.isVacunaMalota()==false){
@@ -447,8 +362,6 @@ public class Base {
                     Scanner pi=new Scanner(System.in);
                     System.out.print("Proceso terminado, ingrese cualquier caracter para continuar: ");
                     String entry = pi.nextLine();
-
-
                     break;
                 case 6:
                     if(castinP.isMuerde()==true){
@@ -480,11 +393,8 @@ public class Base {
                             }else{
                                 System.out.println("opcion introducida invalida...");
                             }
-
-
                     }
                     break;
-                    
                 case 7:
                     if(castinP.isPulgas()==true){
                         System.out.println("¿El perro ya no tiene pulgas?: ");
@@ -515,17 +425,12 @@ public class Base {
                             }else{
                                 System.out.println("opcion introducida invalida...");
                             }
-
-
                     }break;
 
                     default:
                         System.out.println("opcion introducida invalida...");
                         break;
-
                 }
-            
-
             
         }else if(Mascotas.get(capt) instanceof Gato){
             Scanner f1;
@@ -559,8 +464,7 @@ public class Base {
                     System.out.print("ingrese el nuevo lugar de origen: ");
                     String newcountry= f1.nextLine();
                     castinG.setOrigen(newcountry);
-                    break;
-                
+                    break; 
                 case 5:
                     if (castinG.isVacunaMalota()==false){
                     System.out.println("¿Vacuna malota aplicada recientemente?...Si==1/No==2: ");
@@ -596,12 +500,10 @@ public class Base {
                             clearscreen();
                             System.out.println("ningun dato fue actualizado");
                         }
-
                     }else{
                     clearscreen();
                        System.out.println("Las garras del gato ya fueron cortadas...");
                     }
-
             }
         }
         clearscreen();
@@ -612,21 +514,6 @@ public class Base {
         System.out.print("ingrese cualquier tecla para continuar...:");
         String hin = p1.nextLine(); 
     }
-
-
-
-
-
-        
-        
-        
-
-
-
-
-        //System.out.println("==============================");
-        //System.out.print("Introduzca cualquier caracter para volver al menu...:  ");
-//        String nm= e1.nextLine();
 
     }
     public void clearscreen(){
@@ -649,8 +536,7 @@ public class Base {
         System.out.print("ingrese el numero asociado  a su respuesta--> ");
         n=d.nextByte();
         clearscreen();
-        if (n==1){
-            
+        if (n==1){       
             preguntar();
             clearscreen();
         }
@@ -700,8 +586,7 @@ public class Base {
                     System.out.print("ingrese el nuevo lugar de origen: ");
                     String newcountry= f1.nextLine();
                     castinP.setOrigen(newcountry);
-                    break;
-                
+                    break;   
                 case 5:
                 clearscreen();
                     if (castinP.isVacunaMalota()==false){
@@ -758,11 +643,8 @@ public class Base {
 
                                 System.out.println("opcion introducida invalida...");
                             }
-
-
                     }
-                    break;
-                    
+                    break; 
                 case 7:
                 clearscreen();
                     if(castinP.isPulgas()==true){
@@ -794,21 +676,15 @@ public class Base {
                             }else{
                                 System.out.println("opcion introducida invalida...");
                             }
-
-
                     }break;
 
                     default:
                     clearscreen();
                         System.out.println("opcion introducida invalida...");
                         break;
-
                 }
-            
-
-            
+              
         }else if(Mascotas.get(capt) instanceof Gato){
-            
             Scanner f1;
             f1= new Scanner(System.in);
             Gato castinG= ((Gato)Mascotas.get(capt));
@@ -837,11 +713,9 @@ public class Base {
                 case 4:
                 clearscreen();
                     System.out.print("ingrese el nuevo lugar de origen: ");
-                    String newcountry= f1.nextLine();
-                    
+                    String newcountry= f1.nextLine();  
                     castinG.setOrigen(newcountry);
                     break;
-                
                 case 5:
                 clearscreen();
                     if (castinG.isVacunaMalota()==false){
@@ -853,7 +727,7 @@ public class Base {
                         }else{
                         System.out.println("no se actualizó ningun dato...");
                         }
-                
+
                     }else if(castinG.isVacunaMalota()==true){
                     System.out.println("Vacuna malota ya aplicada");
                     }
@@ -876,27 +750,22 @@ public class Base {
                     }else{
                        System.out.println("Las garras del gato ya fueron cortadas...");
                     }
-
             }
         }
         clearscreen();
         }
-            
-        
     }
 
     public void BuscarEliminar(String name1){
         for (int i=0; i<Mascotas.size();i++){
             String nom;
             nom = Mascotas.get(i).getNombre();
-            
                 clearscreen();
                 if(name1.equals(nom)){
                         Mascota mas = Mascotas.get(i);
                         Mascotas.remove(mas);
                         contMascotas--;
-                    }
-                      
+                    }     
                 }
                 System.out.println("=========================");
                     Scanner p=new Scanner(System.in);
@@ -910,7 +779,6 @@ public class Base {
         System.out.println("Nombres de mascotas que tienen la Vacuna Malota aplicada:");
             System.out.println("=================================================");
         for (int i=0; i<Mascotas.size();i++){
-            
             boolean save = Mascotas.get(i).isVacunaMalota();
             String captName= Mascotas.get(i).getNombre();
             
@@ -930,7 +798,3 @@ public class Base {
         String step=stop.nextLine();
     }
     }
-  
-
-    
-

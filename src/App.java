@@ -4,8 +4,7 @@ public class App {
     public void clearscreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
-    }
-    
+    }  
     public static void main(String[] args)  {
         App borrar=new App();
         int num,gor;
@@ -22,17 +21,13 @@ public class App {
             System.out.println("6. Finalizar Gestion(desplegar 2do menu)");
             Scanner input= new Scanner(System.in);
             System.out.print("Ingresa una opcion: ");
-
             byte control= input.nextByte();
-            
-
             Base base= new Base();
+            
             switch(control){
                 case 1:
-                borrar.clearscreen();
-                    
-                    base.AñadirMascota();
-                    
+                    borrar.clearscreen(); 
+                    base.AñadirMascota(); 
                     break;
                 case 2:
                     borrar.clearscreen();
@@ -46,8 +41,7 @@ public class App {
                     base.BuscarEliminar(name1);
                     break;
                 case 4:
-                borrar.clearscreen();
-
+                    borrar.clearscreen();
                     Scanner r1=new Scanner(System.in);
                     System.out.print("introduzca el nombre a buscar: ");
                     String name = r1.nextLine();
@@ -58,7 +52,6 @@ public class App {
                     base.Listar();
                     break;
                 case 6:
-                
                 while(gor==1){
                 borrar.clearscreen();
                 Scanner y;
@@ -72,7 +65,6 @@ public class App {
                 System.out.print("ingrese el numero asociado a su respuesta: ");
                 Byte opt = y.nextByte();
                 
-
                 switch(opt){
                     case 1:
                         borrar.clearscreen();
@@ -101,23 +93,12 @@ public class App {
                     num=2;
 
                 }
-                
-
-                 
                  break;
                 
                 default:
                     System.out.println("Opcion invalida");
                     break;
-                
-
-
             }
         }
-    }
-
-    
-    
+    }   
 }
-    
-

@@ -2,8 +2,6 @@ public class Perro extends Mascota {
     private boolean Pulgas;
     private boolean Muerde;
     
-
-    
     public Perro(String nombre, int precio, boolean vacunamalota, String origen, byte vacunas, boolean pulgas,
             boolean muerde) {
         super(nombre, precio, vacunamalota, origen, vacunas);
@@ -25,5 +23,4 @@ public class Perro extends Mascota {
     public void setMuerde(boolean muerde) {
         Muerde = muerde;
     }
-    
 }
