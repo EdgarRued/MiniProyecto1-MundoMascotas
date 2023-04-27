@@ -7,9 +7,10 @@ public class App {
     }  
     public static void main(String[] args)  {
         App borrar=new App();
-        int num,gor;
+        int num,gor,cont;
         num = 1;
         gor= 1;
+        cont=0;
         while(num==1){
             borrar.clearscreen();
             System.out.println("=====BIENVENIDO A MUNDO MASCOTAS======");
@@ -28,17 +29,28 @@ public class App {
                 case 1:
                     borrar.clearscreen(); 
                     base.AñadirMascota(); 
+                    cont++;
                     break;
                 case 2:
                     borrar.clearscreen();
                     base.Actualizar();
                     break;
                 case 3:
+                if(cont!=0){
+                    borrar.clearscreen();
                     Scanner r=new Scanner(System.in);
                     System.out.print("Digite el nombre de la mascota a eliminar: ");
                     String name1 = r.nextLine();
                     borrar.clearscreen();
                     base.BuscarEliminar(name1);
+                }else if(cont==0){
+                    borrar.clearscreen();
+                    System.out.println("No hay mascotas para eliminar");
+                    System.out.println("    --><><><><><><><><--    ");
+                    System.out.print("Ingrese cualquier tecla para continar....");
+                    Scanner p=new Scanner(System.in);
+                    String t= p.nextLine();
+                }
                     break;
                 case 4:
                     borrar.clearscreen();
@@ -71,6 +83,8 @@ public class App {
                         base.GotVacunaMalota();
                         break;
                     case 2:
+                        borrar.clearscreen();
+                        base.TopM();
 
                         break;
                     case 3:
