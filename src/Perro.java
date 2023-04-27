@@ -2,7 +2,7 @@ public class Perro extends Mascota {
     private boolean Pulgas;
     private boolean Muerde;
     
-    public Perro(String nombre, int precio, boolean vacunamalota, String origen, byte vacunas, boolean pulgas,
+    public Perro(String nombre, int precio, boolean vacunamalota, Origenes origen, byte vacunas, boolean pulgas,
             boolean muerde) {
         super(nombre, precio, vacunamalota, origen, vacunas);
         this.Pulgas = pulgas;

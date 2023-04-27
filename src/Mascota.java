@@ -3,9 +3,9 @@ public class Mascota {
     int precio;
     byte vacunas;
     boolean vacunamalota;
-    String origen;
+    Origenes origen;
 
-    public Mascota(String nombre, int precio, boolean vacunamalota, String origen, byte vacunas) {
+    public Mascota(String nombre, int precio, boolean vacunamalota, Origenes origen, byte vacunas) {
         this.precio = precio;
         this.vacunamalota = vacunamalota;
         this.origen = origen;
@@ -24,10 +24,10 @@ public class Mascota {
     public void setVacuna(boolean vacunamalota) {
         this.vacunamalota = vacunamalota;
     }
-    public String getOrigen() {
+    public Origenes getOrigen() {
         return origen;
     }
-    public void setOrigen(String origen) {
+    public void setOrigen(Origenes origen) {
         this.origen = origen;
     }
     public String getNombre() {
