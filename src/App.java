@@ -71,6 +71,7 @@ public class App {
                 System.out.println("5. Finalizar ejecucion");
                 System.out.print("ingrese el numero asociado a su respuesta: ");
                 Byte opt = y.nextByte();
+                
 
                 switch(opt){
                     case 1:

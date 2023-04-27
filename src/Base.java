@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import javax.sound.midi.SysexMessage;
+import javax.swing.text.AbstractDocument.LeafElement;
 public class Base {
     
     
@@ -48,7 +49,7 @@ public class Base {
                     else{
                     vaccineValue=false;
                     }
-                    System.out.print("Su gato tiene garras?...Si=1 / no=2 : ");
+                    System.out.print("Su gato tiene garras?...Si=1 / no=2: ");
                     Boolean newGarras;
                     byte vm2;
                     vm2= i6.nextByte();
@@ -60,11 +61,11 @@ public class Base {
                     }
 
 
-                    
+                    System.out.println("====================================");
                     // 1 para si
                     // 2 para 20
                     String root;
-                    System.out.println("Digite cualquier caracter para continuar");
+                    System.out.print("Mascota agregada correctamente...digite cualquier tecla para continuar...:");
                     
                     root= i3.nextLine();
 
@@ -92,7 +93,7 @@ public class Base {
                     String origen = i3.nextLine();
                     System.out.print("Vacunas Aplicadas: ");
                     byte vacunas = i4.nextByte();
-                    System.out.println("Vacuna Malota aplicada?... Si=1 / No=2: ");
+                    System.out.print("Vacuna Malota aplicada?... Si=1 / No=2: ");
                     Boolean vmalota;
                     byte des=i5.nextByte();
                     if(des==1){
@@ -115,7 +116,7 @@ public class Base {
                     
                     
                     
-                    System.out.print("Muerde?...Si=1 / No=2:");
+                    System.out.print("Muerde?...Si=1 / No=2: ");
                     Boolean mrde;
                     byte des2=i7.nextByte();
                     if(des2==1){
@@ -123,7 +124,10 @@ public class Base {
                     }else{
                         mrde=false;
                     }
-                    
+                    System.out.println("==============================================");
+                    String bil;
+                    System.out.print("Mascota agregada correctamente...digite cualquier tecla para continuar...:");
+                    bil=i1.nextLine();
                     Perro perrito = new Perro(nombre,precio,vmalota,origen,vacunas,plg,mrde);
                     Mascotas.add(perrito);
                 } else{
@@ -346,12 +350,14 @@ public class Base {
             System.out.println("2.No, ya se que mascota deseo actualizar");
             System.out.print("ingrese el numero asociado a su respuesta--> ");
             Byte number= num2.nextByte();
+            clearscreen();
             if(number==1){
                 preguntar();
             }else if(number==2){
             
             System.out.println("ingrese el N° de la mascota que desea actualizar: ");
             int capt= capturar.nextInt();
+             clearscreen();
             
         
         System.out.println("¿Que dato desea actualizar?");
@@ -370,42 +376,59 @@ public class Base {
             System.out.println("7.Tiene pulgas");
             System.out.print("Ingrese un numero de opcion: ");
             int option=num.nextInt();
+            clearscreen();
             switch(option){
                 case 1:
+                clearscreen();
                     System.out.print("ingrese el nuevo nombre:");
                     String newname=f1.nextLine();
                     castinP.setNombre(newname);
                     break;
                 case 2:
+                clearscreen();
                     System.out.print("ingrese el nuevo precio: ");
                     int newprice = f1.nextInt();
                     castinP.setPrecio(newprice);
                     break;
                 case 3:
+                clearscreen();
                     System.out.print("ingrese la nueva cant. de vacunas aplicas: ");
                     Byte newvacuum = f1.nextByte();
                     castinP.setVacunas(newvacuum);
                     break;
                 case 4:
+                clearscreen();
                     System.out.print("ingrese el nuevo lugar de origen: ");
                     String newcountry= f1.nextLine();
                     castinP.setOrigen(newcountry);
                     break;
                 
                 case 5:
+                clearscreen();
                     if (castinP.isVacunaMalota()==false){
-                    System.out.println("¿Vacuna malota aplicada recientemente?...Si/No: ");
-                    String desi= f1.nextLine();
-                    if ((desi=="Si")||(desi=="si")||(desi=="SI")){
+                    System.out.print("¿Vacuna malota aplicada recientemente?...Si=1 / No=2: ");
+                    Byte desi= f1.nextByte();
+                    clearscreen();
+                    if ((desi==1)){
+                        clearscreen();
                         boolean newStateVacunaMalota=true;
                         castinP.setVacuna(newStateVacunaMalota);
                         }else{
+                            clearscreen();
                         System.out.println("no se actualizó ningun dato...");
                         }
                 
                     }else if(castinP.isVacunaMalota()==true){
+                        clearscreen();
                     System.out.println("Vacuna malota ya aplicada");
+                    System.out.println("==============================");
                     }
+                    clearscreen();
+                    Scanner pi=new Scanner(System.in);
+                    System.out.print("Proceso terminado, ingrese cualquier caracter para continuar: ");
+                    String entry = pi.nextLine();
+
+
                     break;
                 case 6:
                     if(castinP.isMuerde()==true){
@@ -491,23 +514,28 @@ public class Base {
             System.out.println("6.Garras");
             System.out.print("ingresa un numero de opcion: ");
             int op= num2.nextInt();
+            clearscreen();
             switch(op){
                 case 1:
+                    clearscreen();
                     System.out.print("ingrese el nuevo nombre:");
                     String newname=f1.nextLine();
                     castinG.setNombre(newname);
                     break;
                 case 2:
+                    clearscreen();
                     System.out.print("ingrese el nuevo precio: ");
                     int newprice = f1.nextInt();
                     castinG.setPrecio(newprice);
                     break;
                 case 3:
+                    clearscreen();
                     System.out.print("ingrese la nueva cant. de vacunas aplicas: ");
                     Byte newvacuum = f1.nextByte();
                     castinG.setVacunas(newvacuum);
                     break;
                 case 4:
+                    clearscreen();
                     System.out.print("ingrese el nuevo lugar de origen: ");
                     String newcountry= f1.nextLine();
                     castinG.setOrigen(newcountry);
@@ -526,6 +554,7 @@ public class Base {
                         }
                 
                     }else if(castinG.isVacunaMalota()==true){
+                    clearscreen();
                     System.out.println("Vacuna malota ya aplicada...digite cualquier caracter para continuar");
                     Scanner p=new Scanner(System.in);
                     String ct=p.nextLine();
@@ -533,24 +562,29 @@ public class Base {
                     break;
                 case 6:
                     if(castinG.isGarras()==true){
+                        clearscreen();
                         System.out.println("¿Las garras del gato fueron cortadas?");
                         System.out.println("1. Si, fueron cortadas");
                         System.out.println("2. No, aun tiene garras");
                         System.out.print("ingrese un numero asociado a su respuesta: ");
                         Byte resp= f1.nextByte();
                         if(resp==1){
+                            clearscreen();
                             boolean newStateGarras = false;
                             castinG.setGarras(newStateGarras);
                         }else if(resp==2){
+                            clearscreen();
                             System.out.println("ningun dato fue actualizado");
                         }
 
                     }else{
+                    clearscreen();
                        System.out.println("Las garras del gato ya fueron cortadas...");
                     }
 
             }
         }
+        clearscreen();
     }
 
 
@@ -588,13 +622,16 @@ public class Base {
         System.out.println("2.No, ya se que mascota deseo actualizar");
         System.out.print("ingrese el numero asociado  a su respuesta--> ");
         n=d.nextByte();
+        clearscreen();
         if (n==1){
             
             preguntar();
+            clearscreen();
         }
         if (n==2){
             System.out.println("ingrese el N° de la mascota que desea actualizar: ");
             int capt= capturar.nextInt();
+            clearscreen();
             
         clearscreen();
         System.out.println("¿Que dato desea actualizar?");
@@ -664,11 +701,16 @@ public class Base {
                         System.out.print("ingrese un numero asociado a su respuesta: ");
                         Byte resp = f1.nextByte();
                         if (resp==2){
+                            clearscreen();
                             boolean newStateMuerde=false;
                             castinP.setMuerde(newStateMuerde);
                             }else if(resp==1){
+                            clearscreen();
+
                             System.out.println("no se actualizó ningun dato...");
                             }else{
+                                clearscreen();
+
                                 System.out.println("opcion introducida invalida...");
                             }
                         
@@ -679,11 +721,15 @@ public class Base {
                         System.out.print("ingrese un numero asociado a su respuesta: ");
                         Byte resp= f1.nextByte();
                         if (resp==1){
+                            clearscreen();
                             boolean newStateMuerde=true;
                             castinP.setMuerde(newStateMuerde);
                             }else if(resp==2){
-                            System.out.println("no se actualizó ningun dato...");
+                                clearscreen();
+                                System.out.println("no se actualizó ningun dato...");
                             }else{
+                                clearscreen();
+
                                 System.out.println("opcion introducida invalida...");
                             }
 
@@ -766,6 +812,7 @@ public class Base {
                 clearscreen();
                     System.out.print("ingrese el nuevo lugar de origen: ");
                     String newcountry= f1.nextLine();
+                    
                     castinG.setOrigen(newcountry);
                     break;
                 
@@ -806,6 +853,7 @@ public class Base {
 
             }
         }
+        clearscreen();
         }
             
         
