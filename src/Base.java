@@ -548,6 +548,7 @@ public class Base {
     System.out.flush();
     }
     public void preguntar(){
+        clearscreen();
         Scanner capturar,num,num2;
         capturar= new Scanner(System.in);
         num = new Scanner(System.in);
@@ -569,7 +570,7 @@ public class Base {
             System.out.println("ingrese el N° de la mascota que desea actualizar: ");
             int capt= capturar.nextInt();
             
-        
+        clearscreen();
         System.out.println("¿Que dato desea actualizar?");
         System.out.println("1.Nombre");
         System.out.println("2.Precio");
@@ -588,27 +589,32 @@ public class Base {
             int option=num.nextInt();
             switch(option){
                 case 1:
+                clearscreen();
                     System.out.print("ingrese el nuevo nombre:");
                     String newname=f1.nextLine();
                     castinP.setNombre(newname);
                     break;
                 case 2:
+                clearscreen();
                     System.out.print("ingrese el nuevo precio: ");
                     int newprice = f1.nextInt();
                     castinP.setPrecio(newprice);
                     break;
                 case 3:
+                clearscreen();
                     System.out.print("ingrese la nueva cant. de vacunas aplicas: ");
                     Byte newvacuum = f1.nextByte();
                     castinP.setVacunas(newvacuum);
                     break;
                 case 4:
+                clearscreen();
                     System.out.print("ingrese el nuevo lugar de origen: ");
                     String newcountry= f1.nextLine();
                     castinP.setOrigen(newcountry);
                     break;
                 
                 case 5:
+                clearscreen();
                     if (castinP.isVacunaMalota()==false){
                     System.out.println("¿Vacuna malota aplicada recientemente?...Si/No: ");
                     String desi= f1.nextLine();
@@ -624,6 +630,7 @@ public class Base {
                     }
                     break;
                 case 6:
+                clearscreen();
                     if(castinP.isMuerde()==true){
                         System.out.println("¿El perro ya no muerde?: ");
                         System.out.println("1. Si, aun muerde");
@@ -659,6 +666,7 @@ public class Base {
                     break;
                     
                 case 7:
+                clearscreen();
                     if(castinP.isPulgas()==true){
                         System.out.println("¿El perro ya no tiene pulgas?: ");
                         System.out.println("1. Si, aun tiene");
@@ -693,6 +701,7 @@ public class Base {
                     }break;
 
                     default:
+                    clearscreen();
                         System.out.println("opcion introducida invalida...");
                         break;
 
@@ -710,27 +719,32 @@ public class Base {
             int op= num2.nextInt();
             switch(op){
                 case 1:
+                clearscreen();
                     System.out.print("ingrese el nuevo nombre:");
                     String newname=f1.nextLine();
                     castinG.setNombre(newname);
                     break;
                 case 2:
+                clearscreen();
                     System.out.print("ingrese el nuevo precio: ");
                     int newprice = f1.nextInt();
                     castinG.setPrecio(newprice);
                     break;
                 case 3:
+                clearscreen();
                     System.out.print("ingrese la nueva cant. de vacunas aplicas: ");
                     Byte newvacuum = f1.nextByte();
                     castinG.setVacunas(newvacuum);
                     break;
                 case 4:
+                clearscreen();
                     System.out.print("ingrese el nuevo lugar de origen: ");
                     String newcountry= f1.nextLine();
                     castinG.setOrigen(newcountry);
                     break;
                 
                 case 5:
+                clearscreen();
                     if (castinG.isVacunaMalota()==false){
                     System.out.println("¿Vacuna malota aplicada recientemente?...Si/No: ");
                     String desi= f1.nextLine();
@@ -746,6 +760,7 @@ public class Base {
                     }
                     break;
                 case 6:
+                clearscreen();
                     if(castinG.isGarras()==true){
                         System.out.println("¿Las garras del gato fueron cortadas?");
                         System.out.println("1. Si, fueron cortadas");
@@ -775,7 +790,7 @@ public class Base {
             String nom;
             nom = Mascotas.get(i).getNombre();
             
-                
+                clearscreen();
                 if(name1.equals(nom)){
                         Mascota mas = Mascotas.get(i);
                         Mascotas.remove(mas);
@@ -789,6 +804,31 @@ public class Base {
                 
                 }
             }
+
+    public void GotVacunaMalota(){
+        int cont=0;
+        System.out.println("==================================================");
+        for (int i=0; i<Mascotas.size();i++){
+            
+            boolean save = Mascotas.get(i).isVacunaMalota();
+            String captName= Mascotas.get(i).getNombre();
+            System.out.println("Nombres de mascotas que tienen la Vacuna Malota aplicada:");
+            System.out.println("=================================================");
+            if(save==true){
+                System.out.println(captName);
+                cont++;
+            }
+        }if(cont!=0){
+            System.out.println("============================================");
+        }
+        if (cont==0){
+            System.out.println("No hay ninguna mascota con la vacuna malota aplicada");
+            System.out.println("==============================================");
+        }
+        Scanner stop=new Scanner(System.in);
+        System.out.print("ingrese cualquier digito para continuar: ");
+        String step=stop.nextLine();
+    }
     }
   
 

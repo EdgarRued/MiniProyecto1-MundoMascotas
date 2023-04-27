@@ -8,16 +8,18 @@ public class App {
     
     public static void main(String[] args)  {
         App borrar=new App();
-        boolean num = true;
-        while(num==true){
-            
+        int num,gor;
+        num = 1;
+        gor= 1;
+        while(num==1){
+            borrar.clearscreen();
             System.out.println("=====BIENVENIDO A MUNDO MASCOTAS======");
             System.out.println("1. Insertar Mascota");
             System.out.println("2. Actualizar Mascota");
             System.out.println("3. Eliminar Mascota");
-            System.out.println("4. Buscar Mascota");
+            System.out.println("4. Buscar Mascota Por Nombre");
             System.out.println("5. Listar Mascotas");
-            System.out.println("6. Finalizar");
+            System.out.println("6. Finalizar Gestion(desplegar 2do menu)");
             Scanner input= new Scanner(System.in);
             System.out.print("Ingresa una opcion: ");
 
@@ -56,7 +58,51 @@ public class App {
                     base.Listar();
                     break;
                 case 6:
-                 num=false;
+                
+                while(gor==1){
+                borrar.clearscreen();
+                Scanner y;
+                y=new Scanner(System.in);
+                System.out.println("===== 2do Menu =====");
+                System.out.println("1. Que mascotas tienen la vacuna malota");
+                System.out.println("2. Top 5 mascotas mas costosas");
+                System.out.println("3. Que Mascotas no tiene como pais de origen latinoamerica");
+                System.out.println("4. Volver al menu principal");
+                System.out.println("5. Finalizar ejecucion");
+                System.out.print("ingrese el numero asociado a su respuesta: ");
+                Byte opt = y.nextByte();
+
+                switch(opt){
+                    case 1:
+                        borrar.clearscreen();
+                        base.GotVacunaMalota();
+                        break;
+                    case 2:
+
+                        break;
+                    case 3:
+
+                        break;
+                    case 4:
+                        gor=2;
+                        break;
+                    case 5:
+                    gor=3;
+                    break;
+                    default:
+                    System.out.println("Opcion invalida...");
+                    break;
+                }}
+                if(gor==2){
+                    num=1;
+                    gor=1;
+                }else if(gor==3){
+                    num=2;
+
+                }
+                
+
+                 
                  break;
                 
                 default:
