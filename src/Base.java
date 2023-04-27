@@ -1,7 +1,10 @@
 import java.lang.reflect.GenericArrayType;
+import java.net.SocketTimeoutException;
 import java.nio.channels.spi.SelectorProvider;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Locale.Category;
+
 import javax.sound.midi.SysexMessage;
 import javax.swing.text.AbstractDocument.Content;
 import javax.swing.text.AbstractDocument.LeafElement;
@@ -757,6 +760,8 @@ public class Base {
     }
 
     public void BuscarEliminar(String name1){
+        boolean encontrar=false;
+        
         for (int i=0; i<Mascotas.size();i++){
             String nom;
             nom = Mascotas.get(i).getNombre();
@@ -764,10 +769,15 @@ public class Base {
                 if(name1.equals(nom)){
                         Mascota mas = Mascotas.get(i);
                         Mascotas.remove(mas);
+                        encontrar=true;
                         contMascotas--;
                     }     
                 }
+                
                 System.out.println("=========================");
+                if(encontrar==false){
+                    System.out.println("No se encontro ninguna mascota ");
+                }
                     Scanner p=new Scanner(System.in);
                     System.out.println("Digite cualquier letra para continuar... ");
                     String a= p.nextLine(); 
@@ -796,5 +806,72 @@ public class Base {
         Scanner stop=new Scanner(System.in);
         System.out.print("ingrese cualquier digito para continuar: ");
         String step=stop.nextLine();
+
     }
+    public void TopM(){
+        String nom,nom1,nom2,nom3,nom4;
+        int max,max1,max2,max3,max4;
+        max=1;
+        max1=1;
+        max2=1;
+        max3=1;
+        max4=1;
+        nom="";
+        nom1="";
+        nom2="";
+        nom3="";
+        nom4="";
+        for(int i=0; i<Mascotas.size(); i++){
+            int catcher= Mascotas.get(i).getPrecio();
+            if(catcher>max){
+                nom= Mascotas.get(i).getNombre();
+                max=catcher;
+            }
+        }
+        for(int j=0;j<Mascotas.size();j++){
+            int catcher = Mascotas.get(j).getPrecio();
+            if((catcher>max1)&&(catcher<max)){
+                nom1=Mascotas.get(j).getNombre();
+                max1=catcher;
+            }
+        }
+        for(int j=0;j<Mascotas.size();j++){
+            int catcher = Mascotas.get(j).getPrecio();
+            if((catcher>max2)&&(catcher<max1)){
+                nom2=Mascotas.get(j).getNombre();
+                max2=catcher;
+            }
+        }for(int j=0;j<Mascotas.size();j++){
+            int catcher = Mascotas.get(j).getPrecio();
+            if((catcher>max3)&&(catcher<max2)){
+                nom3=Mascotas.get(j).getNombre();
+                max3=catcher;
+            }
+        }for(int j=0;j<Mascotas.size();j++){
+            int catcher = Mascotas.get(j).getPrecio();
+            if((catcher>max4)&&(catcher<max3)){
+                nom4=Mascotas.get(j).getNombre();
+                max4=catcher;
+            }
+        }
+        clearscreen();
+        System.out.println("top 1: "+nom);
+        System.out.println("precio: "+max);
+        System.out.println("---------------");
+        System.out.println("top 2: "+nom1);
+        System.out.println("precio: "+max1);
+        System.out.println("---------------");
+        System.out.println("top 3: "+nom2);
+        System.out.println("precio: "+max2);
+        System.out.println("---------------");
+        System.out.println("top 4: "+nom3);
+        System.out.println("precio: "+max3);
+        System.out.println("---------------");
+        System.out.println("top 5: "+nom4);
+        System.out.println("precio: "+max4);
+
+        Scanner p = new Scanner(System.in);
+        System.out.print("digite cualquier caracter para continuar: ");
+        String tom= p.nextLine();
     }
+} 
