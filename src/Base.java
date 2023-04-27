@@ -6,7 +6,9 @@ import java.util.Scanner;
 import javax.sound.midi.SysexMessage;
 public class Base {
     
+    
     static ArrayList<Mascota> Mascotas= new ArrayList<Mascota>();
+    Scanner general = new Scanner(System.in);
         static byte decision;
 
 
@@ -17,7 +19,7 @@ public class Base {
                 System.out.println("2. Perro");
                 Scanner input2= new Scanner(System.in);
                 System.out.print("R: ");
-                decision = input2.nextByte();
+                decision = general.nextByte();
                 clearscreen();
                 if (decision==1){
                     Scanner i1,i2,i3,i4,i5,i6;
@@ -32,30 +34,43 @@ public class Base {
                     String nombre = i1.nextLine();
                     System.out.print("Precio: ");
                     int precio = i2.nextInt();
-                    System.out.print("Vacuna malota aplicada?...Si/No: ");
-
-                    String vacunamalota = i3.nextLine();
-                    boolean vmalota=false;
-                    if ((vacunamalota=="Si")||(vacunamalota=="si")||(vacunamalota=="SI")){
-                            vmalota = true;
-                    }else if ((vacunamalota=="No")||(vacunamalota=="no")||(vacunamalota=="NO")){
-                            vmalota = false;
-                    }
-                    
                     System.out.print("Origen: ");
-                    String origen = i4.nextLine();
-                    System.out.print("Su gato tiene garras?... Si/No: ");
-                    String garras = i5.nextLine();
-                    boolean grra = true;
-                    if ((garras=="Si")||(garras=="si")||(garras=="SI")){
-                        grra=true;
-                    }else if((garras=="No")||(garras=="no")||(garras=="NO")){
-                        grra=false;
+                    String origen= i3.nextLine();
+                    System.out.print("Vacunas Aplicadas: ");
+                    Byte vacunas=i4.nextByte();
+                    System.out.print("Vacuna malota aplicada?...Si==1/No==2: ");
+                    Boolean vaccineValue ;
+                    byte vm;
+                    vm = i5.nextByte();
+                    if (vm==1){
+                        vaccineValue=true;
+                    }
+                    else{
+                    vaccineValue=false;
+                    }
+                    System.out.print("Su gato tiene garras?...Si=1 / no=2 : ");
+                    Boolean newGarras;
+                    byte vm2;
+                    vm2= i6.nextByte();
+                    if (vm2==1){
+                        newGarras=true;
+                    }
+                    else{
+                        newGarras=false;
                     }
 
-                    System.out.print("Vacunas aplicadas: ");
-                    byte vacunas = i6.nextByte();
-                    Gato gatito = new Gato(nombre,precio,vmalota,origen,vacunas,grra);
+
+                    
+                    // 1 para si
+                    // 2 para 20
+                    String root;
+                    System.out.println("Digite cualquier caracter para continuar");
+                    
+                    root= i3.nextLine();
+
+            
+                    Gato gatito = new Gato(nombre,precio,vaccineValue,origen,vacunas,newGarras);
+                    
                     
                     Mascotas.add(gatito);
                 }
@@ -73,35 +88,43 @@ public class Base {
                     String nombre = i1.nextLine();
                     System.out.print("Precio: ");
                     int precio = i2.nextInt();
-                    System.out.print("Vacuna malota aplicada?...Si/No: ");
-                    String vacunamalota = i3.nextLine();
-                    boolean vmalota=false;
-                    if ((vacunamalota=="Si")||(vacunamalota=="si")||(vacunamalota=="SI")){
+                    System.out.print("Origen: ");
+                    String origen = i3.nextLine();
+                    System.out.print("Vacunas Aplicadas: ");
+                    byte vacunas = i4.nextByte();
+                    System.out.println("Vacuna Malota aplicada?... Si=1 / No=2: ");
+                    Boolean vmalota;
+                    byte des=i5.nextByte();
+                    if(des==1){
                         vmalota=true;
-                    }else if((vacunamalota=="No")||(vacunamalota=="no")||(vacunamalota=="NO")){
+                    }else{
                         vmalota=false;
                     }
-                    System.out.print("Origen: ");
-                    String origen = i4.nextLine();
-                    System.out.print("Tiene pulgas?... Si/No: ");
-                    String Pulgas = i5.nextLine();
-                    boolean plg=true;
-                    if((Pulgas=="Si")||(Pulgas=="si")||(Pulgas=="SI")){
+
+
+                    System.out.print("Tiene pulgas?... Si=1 / No=2: ");
+                    Boolean plg;
+                    
+                    Byte Pulgas = i6.nextByte();
+                    if(Pulgas==1){
                         plg=true;
-                    }else if((Pulgas=="No")||(Pulgas=="no")||(Pulgas=="NO")){
+                    }else{
                         plg=false;
                     }
-                    System.out.print("Vacunas aplicadas: ");
-                    byte vacunas = i6.nextByte();
-                    System.out.print("Muerde?...Si/No:");
-                    String muerde = i7.nextLine();
-                    Boolean mrd = true;
-                    if((muerde=="Si")||(muerde=="si")||(muerde=="SI")){
-                        mrd=true;
-                    }else if((muerde=="No")||(muerde=="no")||(muerde=="NO")){
-                        mrd=false;
+                    
+                    
+                    
+                    
+                    System.out.print("Muerde?...Si=1 / No=2:");
+                    Boolean mrde;
+                    byte des2=i7.nextByte();
+                    if(des2==1){
+                        mrde=true;
+                    }else{
+                        mrde=false;
                     }
-                    Perro perrito = new Perro(nombre,precio,vmalota,origen,vacunas,plg,mrd);
+                    
+                    Perro perrito = new Perro(nombre,precio,vmalota,origen,vacunas,plg,mrde);
                     Mascotas.add(perrito);
                 } else{
                     System.out.println("error... intentelo de nuevo");
@@ -492,17 +515,20 @@ public class Base {
                 
                 case 5:
                     if (castinG.isVacunaMalota()==false){
-                    System.out.println("¿Vacuna malota aplicada recientemente?...Si/No: ");
-                    String desi= f1.nextLine();
-                    if ((desi=="Si")||(desi=="si")||(desi=="SI")){
-                        boolean newStateVacunaMalota=true;
+                    System.out.println("¿Vacuna malota aplicada recientemente?...Si==1/No==2: ");
+                    Byte desi= f1.nextByte();
+                    boolean newStateVacunaMalota;
+                    if (desi==1){
+                        newStateVacunaMalota=true;
                         castinG.setVacuna(newStateVacunaMalota);
                         }else{
                         System.out.println("no se actualizó ningun dato...");
                         }
                 
                     }else if(castinG.isVacunaMalota()==true){
-                    System.out.println("Vacuna malota ya aplicada");
+                    System.out.println("Vacuna malota ya aplicada...digite cualquier caracter para continuar");
+                    Scanner p=new Scanner(System.in);
+                    String ct=p.nextLine();
                     }
                     break;
                 case 6:
@@ -806,12 +832,13 @@ public class Base {
     public void GotVacunaMalota(){
         int cont=0;
         System.out.println("==================================================");
+        System.out.println("Nombres de mascotas que tienen la Vacuna Malota aplicada:");
+            System.out.println("=================================================");
         for (int i=0; i<Mascotas.size();i++){
             
             boolean save = Mascotas.get(i).isVacunaMalota();
             String captName= Mascotas.get(i).getNombre();
-            System.out.println("Nombres de mascotas que tienen la Vacuna Malota aplicada:");
-            System.out.println("=================================================");
+            
             if(save==true){
                 System.out.println(captName);
                 cont++;

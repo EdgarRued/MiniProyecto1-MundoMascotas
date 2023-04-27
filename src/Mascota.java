@@ -2,7 +2,7 @@ public class Mascota {
     String nombre;
     int precio;
     byte vacunas;
-    boolean vacunamalota=false;
+    boolean vacunamalota;
     String origen;
 
     public Mascota(String nombre, int precio, boolean vacunamalota, String origen, byte vacunas) {
