@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import javax.sound.midi.SysexMessage;
+import javax.swing.text.AbstractDocument.Content;
 import javax.swing.text.AbstractDocument.LeafElement;
 public class Base {
     
@@ -11,6 +12,7 @@ public class Base {
     static ArrayList<Mascota> Mascotas= new ArrayList<Mascota>();
     Scanner general = new Scanner(System.in);
         static byte decision;
+        static byte contMascotas=0;
 
 
     public void AñadirMascota(){
@@ -68,7 +70,7 @@ public class Base {
                     System.out.print("Mascota agregada correctamente...digite cualquier tecla para continuar...:");
                     
                     root= i3.nextLine();
-
+                    contMascotas++;
             
                     Gato gatito = new Gato(nombre,precio,vaccineValue,origen,vacunas,newGarras);
                     
@@ -128,6 +130,7 @@ public class Base {
                     String bil;
                     System.out.print("Mascota agregada correctamente...digite cualquier tecla para continuar...:");
                     bil=i1.nextLine();
+                    contMascotas++;
                     Perro perrito = new Perro(nombre,precio,vmalota,origen,vacunas,plg,mrde);
                     Mascotas.add(perrito);
                 } else{
@@ -140,6 +143,7 @@ public class Base {
 
     
     public void Listar(){
+        if(contMascotas!=0){
         Scanner control=new Scanner(System.in);
         System.out.flush();
         System.out.println("Lista de mascotas: ");
@@ -223,11 +227,17 @@ public class Base {
     String ctrl=control.nextLine();
     ctrl=null;
     clearscreen();
+}else if(contMascotas==0){
+    System.out.println("No hay mascotas en la lista...presione e ingrese cualquier tecla para continuar");
+    Scanner pip=new Scanner(System.in);
+    String pep = pip.nextLine(); 
+}
         
 }
 
     public void BuscarMascota(String name){
         clearscreen();
+        boolean encontro=false;
         System.out.println("=========================");
         for (int i=0; i<Mascotas.size();i++){
             String nom;
@@ -235,6 +245,7 @@ public class Base {
             
                 
                 if(name.equals(nom)){
+                    encontro=true;
                     System.out.println("Nombre a buscar: "+name);
                     System.out.println("========================");
                     String ms1;
@@ -284,6 +295,14 @@ public class Base {
 
                 
                 }
+                
+            }
+            if (encontro==false){
+                System.out.println("No se encontro ninguna mascota relacionada con ese nombre..");
+                System.out.println("                       <>                             ");
+                System.out.print("Digite cualquier tecla para continuar...");
+                Scanner ip=new Scanner(System.in);
+                String imp= ip.nextLine();
             }
             clearscreen();
         }
@@ -336,6 +355,7 @@ public class Base {
 
             }*/
         public void Actualizar(){
+            if(contMascotas!=0){
             clearscreen();
             Scanner capturar,num,num2;
             capturar= new Scanner(System.in);
@@ -585,6 +605,12 @@ public class Base {
             }
         }
         clearscreen();
+        }
+    }else if(contMascotas==0){
+        System.out.println("No hay mascotas, inserte alguna para actualiarla");
+        Scanner p1 = new Scanner(System.in);
+        System.out.print("ingrese cualquier tecla para continuar...:");
+        String hin = p1.nextLine(); 
     }
 
 
@@ -868,6 +894,7 @@ public class Base {
                 if(name1.equals(nom)){
                         Mascota mas = Mascotas.get(i);
                         Mascotas.remove(mas);
+                        contMascotas--;
                     }
                       
                 }
