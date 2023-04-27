@@ -36,6 +36,13 @@ public class App {
                     borrar.clearscreen();
                     base.Actualizar();
                     break;
+                case 3:
+                    Scanner r=new Scanner(System.in);
+                    System.out.print("Digite el nombre de la mascota a eliminar: ");
+                    String name1 = r.nextLine();
+                    borrar.clearscreen();
+                    base.BuscarEliminar(name1);
+                    break;
                 case 4:
                 borrar.clearscreen();
 
