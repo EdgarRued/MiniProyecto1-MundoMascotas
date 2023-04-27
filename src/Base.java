@@ -37,7 +37,23 @@ public class Base {
                     System.out.print("Precio: ");
                     int precio = i2.nextInt();
                     System.out.print("Origen: ");
-                    String origen= i3.nextLine();
+                    
+                    String origen=i3.nextLine();
+                    if((origen=="latinoamerica")||(origen=="Latinoamerica")){
+                        origen= "latinoamerica";
+                    }else if((origen=="africa")||(origen=="Africa")){
+                        origen="africa";
+                    }else if((origen=="asia")||(origen=="Asia")){
+                        origen="asia";
+                    }else if((origen=="cntroamerica")||(origen=="Centroamerica")){
+                        origen="centroamerica";
+                    }else if((origen=="europa")||(origen=="Europa")){
+                        origen="europa";
+                    }else if((origen=="norteamerica")||(origen=="Norteamerica")){
+                        origen="norteamerica";
+                    }
+                    Origenes origin=Origenes.valueOf(origen); 
+                    
                     System.out.print("Vacunas Aplicadas: ");
                     Byte vacunas=i4.nextByte();
                     System.out.print("Vacuna malota aplicada?...Si==1/No==2: ");
@@ -67,7 +83,7 @@ public class Base {
                     System.out.print("Mascota agregada correctamente...digite cualquier tecla para continuar...:");  
                     root= i3.nextLine();
                     contMascotas++;
-                    Gato gatito = new Gato(nombre,precio,vaccineValue,origen,vacunas,newGarras);
+                    Gato gatito = new Gato(nombre,precio,vaccineValue,origin,vacunas,newGarras);
                     Mascotas.add(gatito);
                 }
                 else if (decision==2){
@@ -85,7 +101,23 @@ public class Base {
                     System.out.print("Precio: ");
                     int precio = i2.nextInt();
                     System.out.print("Origen: ");
-                    String origen = i3.nextLine();
+                    String origen=i3.nextLine();
+                    
+                    if((origen=="latinoamerica")||(origen=="Latinoamerica")){
+                        origen= "latinoamerica";
+                    }else if((origen=="africa")||(origen=="Africa")){
+                        origen="africa";
+                    }else if((origen=="asia")||(origen=="Asia")){
+                        origen="asia";
+                    }else if((origen=="cntroamerica")||(origen=="Centroamerica")){
+                        origen="centroamerica";
+                    }else if((origen=="europa")||(origen=="Europa")){
+                        origen="europa";
+                    }else if((origen=="norteamerica")||(origen=="Norteamerica")){
+                        origen="norteamerica";
+                    }
+                    Origenes origin=Origenes.valueOf(origen);
+                    
                     System.out.print("Vacunas Aplicadas: ");
                     byte vacunas = i4.nextByte();
                     System.out.print("Vacuna Malota aplicada?... Si=1 / No=2: ");
@@ -117,7 +149,7 @@ public class Base {
                     System.out.print("Mascota agregada correctamente...digite cualquier tecla para continuar...:");
                     bil=i1.nextLine();
                     contMascotas++;
-                    Perro perrito = new Perro(nombre,precio,vmalota,origen,vacunas,plg,mrde);
+                    Perro perrito = new Perro(nombre,precio,vmalota,origin,vacunas,plg,mrde);
                     Mascotas.add(perrito);
                 } else{
                     System.out.println("error... intentelo de nuevo");
@@ -337,8 +369,10 @@ public class Base {
                     break;
                 case 4:
                 clearscreen();
-                    System.out.print("ingrese el nuevo lugar de origen: ");
-                    String newcountry= f1.nextLine();
+                    System.out.println("*recuerde los origenes disponibles");
+                    System.out.print("ingrese el nuevo lugar de origen(: ");
+                    String newcountry1= f1.nextLine();
+                    Origenes newcountry=Origenes.valueOf(newcountry1);
                     castinP.setOrigen(newcountry);
                     break;  
                 case 5:
@@ -464,8 +498,10 @@ public class Base {
                     break;
                 case 4:
                     clearscreen();
+                    System.out.println("*recuerde los origenes disponibles");
                     System.out.print("ingrese el nuevo lugar de origen: ");
-                    String newcountry= f1.nextLine();
+                    String newcountry1= f1.nextLine();
+                    Origenes newcountry= Origenes.valueOf(newcountry1);
                     castinG.setOrigen(newcountry);
                     break; 
                 case 5:
@@ -587,7 +623,8 @@ public class Base {
                 case 4:
                 clearscreen();
                     System.out.print("ingrese el nuevo lugar de origen: ");
-                    String newcountry= f1.nextLine();
+                    String newcountry1= f1.nextLine();
+                    Origenes newcountry = Origenes.valueOf(newcountry1);
                     castinP.setOrigen(newcountry);
                     break;   
                 case 5:
@@ -716,7 +753,9 @@ public class Base {
                 case 4:
                 clearscreen();
                     System.out.print("ingrese el nuevo lugar de origen: ");
-                    String newcountry= f1.nextLine();  
+                    String newcountry1= f1.nextLine();
+                    Origenes newcountry= Origenes.valueOf(newcountry1);
+
                     castinG.setOrigen(newcountry);
                     break;
                 case 5:
