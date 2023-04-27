@@ -769,7 +769,28 @@ public class Base {
             
         
     }
+
+    public void BuscarEliminar(String name1){
+        for (int i=0; i<Mascotas.size();i++){
+            String nom;
+            nom = Mascotas.get(i).getNombre();
+            
+                
+                if(name1.equals(nom)){
+                        Mascota mas = Mascotas.get(i);
+                        Mascotas.remove(mas);
+                    }
+                    System.out.println("=========================");
+                    Scanner p=new Scanner(System.in);
+                    System.out.println("Digite cualquier letra para continuar... ");
+                    String a= p.nextLine();
+                    
+
+                
+                }
+            }
+    }
   
-}
+
     
 
