@@ -109,6 +109,8 @@ public class App {
                     num=2;
 
                 }
+                borrar.clearscreen();
+                System.out.println("!Hasta pronto¡...");
                  break;
                 
                 default:
